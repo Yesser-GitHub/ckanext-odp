@@ -1,9 +1,11 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
+import ckanext.ksa.helpers as ksa_helpers
 
 class KsaPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
 
@@ -11,3 +13,8 @@ class KsaPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'ksa')
+
+    # ITemplateHelpers
+
+    def get_helpers(self):
+        return ksa_helpers.get_ksa_helpers()
