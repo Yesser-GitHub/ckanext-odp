@@ -81,7 +81,7 @@
       {% block header_logo %}
         <a class="logo pull-left" href="{{ h.url_for('home') }}"><img src="/images/logo.png" alt="{{ g.site_title }}" title="{{ g.site_title }}" /></a>
       {% endblock %}
-      <div class="row">
+      <div class="pull-right row">
         {% snippet "snippets/language_selector.html" %}
         <div class="pull-right social-links">
           <div class="social_icons">
@@ -91,6 +91,19 @@
             <a title="تويتر" class="soc-icon ico4" href="https://twitter.com/saudiegov" target="_blank">تويتر</a>
           </div>
         </div>
+        {% if c.controller != 'home' or c.action != 'index' %}
+        <div class="pull-right header-search">
+          <form class="search-form" method="get" action="{% url_for controller='package', action='search' %}">
+              <div class="search-input control-group">
+                <input type="text" class="search" name="q" value="" autocomplete="off" placeholder="search" />
+                <button type="submit">
+                  <i class="icon-search"></i>
+                  <span>{{ _('Search') }}</span>
+                </button>
+              </div>
+            </form>
+        </div>
+        {% endif %}
       </div>
     </div>
   </hgroup>
@@ -115,16 +128,16 @@
                   ) }}
                 {% endblock %}
                 <li>
-                  <a href="{{ sitecoreurl }}">Policies and Guidelines</a>
+                  <a href="{{ sitecoreurl }}">{{_('Policies and Guidelines')}}</a>
                 </li>
                 <li>
-                  <a href="{{ sitecoreurl }}">Request Publication</a>
+                  <a href="{{ sitecoreurl }}">{{_('Request Publication')}}</a>
                 </li>
                 <li>
-                  <a href="{{ sitecoreurl }}">Contact Us</a>
+                  <a href="{{ sitecoreurl }}">{{_('Contact Us')}}</a>
                 </li>
                 <li>
-                  <a href="{{ sitecoreurl }}">Analytics</a>
+                  <a href="{{ sitecoreurl }}">{{_('Analytics')}}</a>
                 </li>
               </ul>
             </nav>

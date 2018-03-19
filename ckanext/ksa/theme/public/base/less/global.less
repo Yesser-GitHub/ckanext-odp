@@ -1,6 +1,6 @@
 body {
     font-family: 'Midan';
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.35em;
     color: @mainText;
     background: url('/images/bg_body_top.png') top no-repeat, url('/images/bg_body_bottom.png') bottom no-repeat;
@@ -25,6 +25,59 @@ a {
     &:hover {
         color: @darkGreen;
     }
+}
+input, button, select, textarea {
+    font-family: 'Midan';
+    font-size: 20px;
+}
+.btn-primary {
+    background: @mainGreen;
+    &:hover, &:focus {
+        background: @darkGreen;
+    }
+}
+.toolbar {
+    .breadcrumb {
+        li {
+            a, span {
+                color: @mainGreen;
+            }
+            &.active {
+                a, span{
+                    color: @mainText
+                }
+            }
+            &:after {
+                color: #ccc;
+            }
+        }
+    }
+}
+aside.span3 {
+    width: 25%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.primary {
+    &.span12 {
+        width: 75%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    h1 {
+        font-size: 30px;
+        font-family: 'MidanBlack';
+        line-height: 1.1;
+        margin: 0;
+    }
+}
+article.module {
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 20px 25px;
+}
+.page-header {
+    background-color: transparent;
 }
 
 /* Footer */

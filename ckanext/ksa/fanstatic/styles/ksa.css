@@ -8,7 +8,7 @@
 }
 body {
   font-family: 'Midan';
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.35em;
   color: #3B3B3B;
   background: url('/images/bg_body_top.png') top no-repeat, url('/images/bg_body_bottom.png') bottom no-repeat;
@@ -35,6 +35,55 @@ a {
 }
 a:hover {
   color: #00612c;
+}
+input,
+button,
+select,
+textarea {
+  font-family: 'Midan';
+  font-size: 20px;
+}
+.btn-primary {
+  background: #0b8743;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #00612c;
+}
+.toolbar .breadcrumb li a,
+.toolbar .breadcrumb li span {
+  color: #0b8743;
+}
+.toolbar .breadcrumb li.active a,
+.toolbar .breadcrumb li.active span {
+  color: #3B3B3B;
+}
+.toolbar .breadcrumb li:after {
+  color: #ccc;
+}
+aside.span3 {
+  width: 25%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.primary.span12 {
+  width: 75%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.primary h1 {
+  font-size: 30px;
+  font-family: 'MidanBlack';
+  line-height: 1.1;
+  margin: 0;
+}
+article.module {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 20px 25px;
+}
+.page-header {
+  background-color: transparent;
 }
 /* Footer */
 .site-footer {
@@ -172,6 +221,30 @@ header.navbar .header-navbar .btn-navbar .icon-bar {
   text-shadow: none;
   box-shadow: none;
 }
+.header-search {
+  clear: both;
+  margin-top: 12px;
+}
+.header-search .search-form {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: none;
+}
+.header-search .search-form .search-input {
+  margin-bottom: 15px;
+}
+.header-search .search-form .search-input input {
+  width: 250px;
+  height: 34px;
+  padding-right: 30px;
+}
+.header-search .search-form .search-input button i {
+  font-size: 20px;
+  color: #555;
+}
+.header-search .search-form .search-input button:hover i {
+  color: #555;
+}
 .homepage .panel-top {
   background: linear-gradient(rgba(11, 135, 67, 0.45), rgba(11, 135, 67, 0.45)), url('/images/heading-bg.jpg') 50% 50% no-repeat;
   background-size: cover;
@@ -238,6 +311,130 @@ header.navbar .header-navbar .btn-navbar .icon-bar {
   line-height: 1.1;
   text-align: center;
 }
+article.about {
+  padding: 0 20px;
+}
+aside.secondary section.module {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+aside.secondary section.module .module-heading {
+  background-color: #0b8743;
+  font-size: 20px;
+  color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item {
+  border-bottom: 1px dotted #ccc;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item a {
+  font-size: 20px;
+  color: #333;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item a:hover,
+aside.secondary section.module nav ul.nav-facet li.nav-item a:focus {
+  color: #1a1a1a;
+  background: rgba(0, 0, 0, 0.03);
+  text-decoration: none;
+  position: relative;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item a:hover:after,
+aside.secondary section.module nav ul.nav-facet li.nav-item a:focus:after {
+  content: "\f055";
+  color: #5cb85c;
+  font-family: "FontAwesome";
+  position: absolute;
+  right: 6px;
+  background: transparent;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item:last-child {
+  border-bottom: none;
+}
+aside.secondary section.module .module-footer {
+  padding: 0;
+}
+aside.secondary section.module .module-footer .read-more {
+  display: block;
+  position: relative;
+  line-height: 1.35em;
+  color: #0b8743;
+  padding: 5px 39px 5px 5px;
+}
+aside.secondary section.module .module-footer .read-more:after {
+  content: "\f150";
+  font-family: "FontAwesome";
+  position: absolute;
+  top: 6px;
+  right: 15px;
+}
+aside.secondary section.module .module-footer .read-more:hover,
+aside.secondary section.module .module-footer .read-morefocus {
+  color: #00612c;
+}
+.primary div.module-content {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.search_title h4 {
+  font-size: 20px;
+  line-height: 1;
+  margin: 0 0 5px;
+}
+#dataset-search-form {
+  overflow: hidden;
+  padding: 0;
+  margin: 10px 0;
+  border-bottom: none;
+}
+#dataset-search-form .search-input {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+#dataset-search-form .search-input input {
+  height: 40px;
+  width: 217px;
+}
+#dataset-search-form .form-select {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+#dataset-search-form .form-select select {
+  margin-bottom: 0;
+  height: 40px;
+  width: 176px;
+}
+#dataset-search-form button {
+  margin-right: 10px;
+  height: 40px;
+  width: 62px;
+  background-color: #0b8743;
+  color: #fff;
+}
+ul.dataset-list li.dataset-item {
+  font-size: 22px;
+  line-height: 1.35em;
+  border-left: 5px solid #FCB016;
+  border-bottom: none;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+}
+ul.dataset-list li.dataset-item h2.dataset-heading a {
+  font-size: 24px;
+  color: #0b8743;
+}
+ul.dataset-list li.dataset-item h2.dataset-heading a:hover {
+  color: #00612c;
+}
+ul.dataset-list li.dataset-item .d_desc {
+  margin-bottom: 5px;
+}
+ul.dataset-list li.dataset-item .d_group,
+ul.dataset-list li.dataset-item .d_org {
+  font-size: 20px;
+  margin-bottom: 0;
+}
 @media (max-width: 1199px) {
   .container,
   .navbar .container {
@@ -257,6 +454,9 @@ header.navbar .header-navbar .btn-navbar .icon-bar {
   }
   header.navbar .header-navbar {
     margin-top: 5px;
+  }
+  .header-search {
+    padding-right: 4px;
   }
 }
 @media (max-width: 379px) {

@@ -12,7 +12,7 @@
       </a>
     </div>
     <p class="group-box-title">
-      <a href="{{ h.url_for(controller='group', action='read', id=group) }}">{{ group_title }}</a>
+      <a href="{{ h.url_for(controller='group', action='read', id=group) }}">{{ _(group_title) }}</a>
     </p>
   </div>
 {% endfor %}
