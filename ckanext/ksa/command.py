@@ -91,13 +91,16 @@ class KSACommand(CkanCommand):
                         resources = dataset.get('resources', [])
                         entity_counter.update(resource=len(resources))
                         for group in dataset.get('groups', []):
+                            if group['id'] in group_set:
+                                continue
                             group['name'] = group['id']
                             group['image_url'] = group['image_display_url']
-                            if group['id'] not in group_set:
-                                logic.get_action('group_create')(
-                                    dict(model=model, user=site_user['name']),
-                                    group
-                                )
+                            group.pop('display_name', None)
+                            group_set.add(group['id'])
+                            logic.get_action('group_create')(
+                                dict(model=model, user=site_user['name']),
+                                group
+                            )
                         for res in resources[:]:
                             res_counter.update(res.keys())
                             if not res['name']:
@@ -150,7 +153,10 @@ class KSACommand(CkanCommand):
 
         try:
             res = get(url + 'site_read', proxies=proxies, timeout=10)
-        except requests.exceptions.ReadTimeout:
+        except (
+            requests.exceptions.ReadTimeout,
+            requests.exceptions.ConnectionError
+        ):
             logger.error(
                 'Remote portal is not available. Try to use proxy(-u flag)'
             )
