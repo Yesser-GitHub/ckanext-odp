@@ -23,7 +23,9 @@ body {
   box-sizing: border-box;
 }
 [role=main],
-.main {
+.main,
+.page-header,
+.media-grid {
   background: transparent;
 }
 .row {
@@ -45,9 +47,34 @@ textarea {
 }
 .btn-primary {
   background: #0b8743;
+  text-shadow: none;
+  box-shadow: none;
 }
 .btn-primary:hover,
-.btn-primary:focus {
+.btn-primary:focus,
+.btn-primary:active {
+  background: #00612c;
+}
+.btn-group > .btn {
+  font-size: 20px;
+  border: none;
+}
+.btn-group > .btn:hover,
+.btn-group > .btn:focus,
+.btn-group > .btn:active {
+  background: #00612c;
+  box-shadow: none;
+}
+.btn-group > .dropdown-menu {
+  font-size: 18px;
+}
+.btn-group > .dropdown-menu li a:hover,
+.btn-group > .dropdown-menu li a:focus,
+.btn-group > .dropdown-menu li a:active {
+  background: #0b8743;
+  box-shadow: none;
+}
+.btn-group.open .btn-primary.dropdown-toggle {
   background: #00612c;
 }
 .toolbar .breadcrumb li a,
@@ -66,8 +93,11 @@ aside.span3 {
   padding: 0 15px;
   box-sizing: border-box;
 }
-.primary.span12 {
+aside.span3 + .primary.span9 {
   width: 75%;
+}
+.primary.span9 {
+  width: 100%;
   padding: 0 15px;
   box-sizing: border-box;
 }
@@ -82,8 +112,15 @@ article.module {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   padding: 20px 25px;
 }
-.page-header {
-  background-color: transparent;
+.activity .item p,
+.btn,
+label,
+.nav-item > a,
+.nav-aside li a {
+  font-size: 20px;
+}
+.stages {
+  margin: -20px -25px 20px -10px;
 }
 /* Footer */
 .site-footer {
@@ -122,6 +159,7 @@ article.module {
   border-left: none;
 }
 .account-masthead .account ul li a {
+  font-size: 20px;
   color: #040404;
 }
 .account-masthead .account ul li a:hover,
@@ -234,6 +272,7 @@ header.navbar .header-navbar .btn-navbar .icon-bar {
   margin-bottom: 15px;
 }
 .header-search .search-form .search-input input {
+  font-size: 20px;
   width: 250px;
   height: 34px;
   padding-right: 30px;
@@ -311,9 +350,6 @@ header.navbar .header-navbar .btn-navbar .icon-bar {
   line-height: 1.1;
   text-align: center;
 }
-article.about {
-  padding: 0 20px;
-}
 aside.secondary section.module {
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -332,13 +368,13 @@ aside.secondary section.module nav ul.nav-facet li.nav-item {
 aside.secondary section.module nav ul.nav-facet li.nav-item a {
   font-size: 20px;
   color: #333;
+  position: relative;
 }
 aside.secondary section.module nav ul.nav-facet li.nav-item a:hover,
 aside.secondary section.module nav ul.nav-facet li.nav-item a:focus {
   color: #1a1a1a;
   background: rgba(0, 0, 0, 0.03);
   text-decoration: none;
-  position: relative;
 }
 aside.secondary section.module nav ul.nav-facet li.nav-item a:hover:after,
 aside.secondary section.module nav ul.nav-facet li.nav-item a:focus:after {
@@ -351,6 +387,35 @@ aside.secondary section.module nav ul.nav-facet li.nav-item a:focus:after {
 }
 aside.secondary section.module nav ul.nav-facet li.nav-item:last-child {
   border-bottom: none;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item.active a {
+  background-color: #ccc;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item.active a:before {
+  content: '';
+  position: absolute;
+  right: -13px;
+  top: 0;
+  background: transparent;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 13px solid #ccc;
+  z-index: 1;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item.active a:after {
+  content: "\f00d";
+  color: #040404;
+  font-family: "FontAwesome";
+  position: absolute;
+  top: 14px;
+  right: 6px;
+  background: transparent;
+}
+aside.secondary section.module nav ul.nav-facet li.nav-item.active a:hover:after,
+aside.secondary section.module nav ul.nav-facet li.nav-item.active a:focus:after {
+  color: red;
 }
 aside.secondary section.module .module-footer {
   padding: 0;
@@ -382,30 +447,30 @@ aside.secondary section.module .module-footer .read-morefocus {
   line-height: 1;
   margin: 0 0 5px;
 }
-#dataset-search-form {
+.mini-search-form {
   overflow: hidden;
   padding: 0;
   margin: 10px 0;
   border-bottom: none;
 }
-#dataset-search-form .search-input {
+.mini-search-form .search-input {
   margin-bottom: 0;
   margin-right: 10px;
 }
-#dataset-search-form .search-input input {
+.mini-search-form .search-input input {
   height: 40px;
   width: 217px;
 }
-#dataset-search-form .form-select {
+.mini-search-form .form-select {
   margin-bottom: 0;
   margin-right: 10px;
 }
-#dataset-search-form .form-select select {
+.mini-search-form .form-select select {
   margin-bottom: 0;
   height: 40px;
   width: 176px;
 }
-#dataset-search-form button {
+.mini-search-form button {
   margin-right: 10px;
   height: 40px;
   width: 62px;
@@ -435,6 +500,82 @@ ul.dataset-list li.dataset-item .d_org {
   font-size: 20px;
   margin-bottom: 0;
 }
+a.btn {
+  background: #0b8743;
+  color: #fff;
+  border: none;
+  text-shadow: none;
+  box-shadow: none;
+}
+a.btn:hover,
+a.btn:focus,
+a.btn:active {
+  color: #fff;
+  background: #00612c;
+}
+.notes {
+  padding-top: 10px;
+  padding-left: 30px;
+  position: relative;
+  color: #555;
+}
+.notes .icon-info-sign {
+  font-size: 30px;
+  color: #999;
+  position: absolute;
+  left: 0;
+  top: 7px;
+}
+.notes a {
+  color: #0b8743;
+}
+.notes a:hover {
+  color: #00612c;
+}
+.additional-info h3 {
+  font-size: 36px;
+}
+.additional-info table thead tr th {
+  background-color: #cdcdcd;
+}
+.resources h3 {
+  font-size: 36px;
+}
+.resources .resource-item .heading {
+  font-size: 20px;
+}
+.resources .resource-item .description {
+  font-size: 20px;
+}
+.resources .resource-item:hover {
+  background-color: transparent;
+}
+.d_publisher {
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+.d_publisher p {
+  margin-bottom: 0;
+}
+/* Resource */
+.module-resource {
+  background-color: transparent;
+  border: none;
+}
+.media-grid {
+  border: none;
+}
+.media-grid .media-item .media-heading {
+  font-size: 22px;
+  color: #0b8743;
+}
+.total-publishers {
+  font-size: 25px;
+  margin: 15px 0;
+}
+.media-view:hover {
+  border-color: #00612c;
+}
 @media (max-width: 1199px) {
   .container,
   .navbar .container {
@@ -445,6 +586,12 @@ ul.dataset-list li.dataset-item .d_org {
   .container,
   .navbar .container {
     width: 630px;
+  }
+  aside.span3 {
+    width: 100%;
+  }
+  aside.span3 + .primary.span9 {
+    width: 100%;
   }
 }
 @media (max-width: 768px) {
@@ -457,6 +604,22 @@ ul.dataset-list li.dataset-item .d_org {
   }
   .header-search {
     padding-right: 4px;
+  }
+  .mini-search-form .search-input,
+  .mini-search-form .form-select {
+    margin-bottom: 5px;
+  }
+}
+@media (max-width: 425px) {
+  .mini-search-form .search-input,
+  .mini-search-form .form-select {
+    width: 100%;
+  }
+  .mini-search-form .search-input input,
+  .mini-search-form .form-select input,
+  .mini-search-form .search-input select,
+  .mini-search-form .form-select select {
+    width: 100%;
   }
 }
 @media (max-width: 379px) {

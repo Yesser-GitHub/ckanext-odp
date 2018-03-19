@@ -8,6 +8,12 @@
     .container, .navbar .container {
         width: 630px;
     }
+    aside.span3 {
+        width: 100%;
+        &+.primary.span9 {
+            width: 100%;
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -21,6 +27,22 @@
     }
     .header-search {
         padding-right: 4px;
+    }
+    .mini-search-form {
+        .search-input, .form-select {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .mini-search-form {
+        .search-input, .form-select {
+            width: 100%;
+            input, select {
+                width: 100%;
+            }
+        }
     }
 }
 

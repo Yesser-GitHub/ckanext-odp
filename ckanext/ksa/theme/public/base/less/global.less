@@ -13,7 +13,7 @@ body {
     padding-right: 15px;
     box-sizing: border-box;
 }
-[role=main], .main{
+[role=main], .main, .page-header, .media-grid{
     background: transparent;
 }
 .row {
@@ -32,8 +32,36 @@ input, button, select, textarea {
 }
 .btn-primary {
     background: @mainGreen;
-    &:hover, &:focus {
+    text-shadow: none;
+    box-shadow: none;
+    &:hover, &:focus, &:active  {
         background: @darkGreen;
+    }
+}
+.btn-group{
+    &>.btn {
+        font-size: 20px;
+        border: none;
+        &:hover, &:focus, &:active {
+            background: @darkGreen;
+            box-shadow: none;
+        }
+    }
+    &>.dropdown-menu {
+        font-size: 18px;
+        li {
+            a {
+                &:hover, &:focus, &:active {
+                    background: @mainGreen;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    &.open {
+        .btn-primary.dropdown-toggle {
+            background: @darkGreen;
+        }
     }
 }
 .toolbar {
@@ -57,10 +85,13 @@ aside.span3 {
     width: 25%;
     padding: 0 15px;
     box-sizing: border-box;
+    &+.primary.span9 {
+        width: 75%;
+    }
 }
 .primary {
-    &.span12 {
-        width: 75%;
+    &.span9 {
+        width: 100%;
         padding: 0 15px;
         box-sizing: border-box;
     }
@@ -76,8 +107,11 @@ article.module {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     padding: 20px 25px;
 }
-.page-header {
-    background-color: transparent;
+.activity .item p, .btn, label, .nav-item>a, .nav-aside li a {
+    font-size: 20px;
+}
+.stages {
+    margin: -20px -25px 20px -10px;
 }
 
 /* Footer */
