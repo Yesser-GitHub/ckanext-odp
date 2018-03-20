@@ -576,6 +576,50 @@ a.btn:active {
 .media-view:hover {
   border-color: #00612c;
 }
+/* Groups */
+.groups-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-between;
+  margin: 0;
+}
+.group-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  text-align: center;
+  margin: 0 20px 45px;
+}
+.group-item .group-image {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #F3F3F3;
+}
+.group-item .media-heading {
+  font-size: 25px;
+  line-height: 1.1;
+  color: #0b8743;
+  margin: 20px 0 25px;
+}
+.group-item .media-heading:hover {
+  color: #00612c;
+  text-decoration: underline;
+}
+.group-item strong.count {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 12px;
+  background-color: #0b8743;
+  color: #fff;
+}
+.group-item a:hover,
+.group-item a:focus,
+.group-item a:active {
+  text-decoration: none;
+}
 @media (max-width: 1199px) {
   .container,
   .navbar .container {
