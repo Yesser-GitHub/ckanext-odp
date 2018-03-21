@@ -89,6 +89,23 @@ aside.secondary {
                     color: @darkGreen;
                 }
             }
+            .read-less {
+                display: block;
+                position: relative; 
+                line-height: 1.35em;
+                color: @mainGreen;
+                padding: 5px 39px 5px 5px;
+                &:after {
+                    content: "\f151";
+                    font-family: "FontAwesome";
+                    position: absolute;
+                    top: 6px;
+                    right: 15px;
+                }
+                &:hover, &focus {
+                    color: @darkGreen;
+                }
+            }
         }
     }
 }

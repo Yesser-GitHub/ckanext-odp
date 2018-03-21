@@ -57,6 +57,7 @@ header.navbar {
                 margin-top: 8px;
                 transition: all 0.3s ease-out;
                 text-indent: -9999px;
+                overflow: hidden;
                 &.ico1 {
                     background-position-x: -88px;
                 }
@@ -91,7 +92,7 @@ header.navbar {
                         text-decoration: underline;
                     }
                 }
-                &.en.last.active {
+                &.en {
                     border-left: 3px solid @darkGrey;
                 }
             }
@@ -141,7 +142,7 @@ header.navbar {
 }
 .header-search {
     clear: both;
-    margin-top: 12px;
+    margin-top: 6px;
     .search-form {
         margin-bottom: 0;
         padding-bottom: 0;
