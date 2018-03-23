@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+
+{% block main_content %}
+<p>Enter word or phrase to save the translation</p>
+<form class="inline" method="POST" action="">
+  <div class="control-group">
+    <label for="input-en">English</label>
+    <input type="text" name="en" id="input-en">
+  </div>
+  <div class="control-group">
+    <label for="input-ar">Arabic</label>
+    <input type="text" name="ar" id="input-ar">
+  </div>
+  <input type="submit" class="btn btn-primary" value="{{ _('Submit') }}">
+</form>
+{% endblock %}

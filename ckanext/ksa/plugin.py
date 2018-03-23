@@ -6,6 +6,7 @@ import ckanext.ksa.helpers as ksa_helpers
 class KsaPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IRoutes, inherit=True)
 
     # IConfigurer
 
@@ -18,3 +19,16 @@ class KsaPlugin(plugins.SingletonPlugin):
 
     def get_helpers(self):
         return ksa_helpers.get_ksa_helpers()
+
+    def before_map(self, routeMap):
+        """ Use our custom controller, and disable some unwanted URLs
+        """
+        controller = 'ckanext.ksa.controller:KsaController'
+
+        routeMap.connect(
+            "translations",
+            '/translations',
+            controller=controller,
+            action='translations')
+
+        return routeMap
