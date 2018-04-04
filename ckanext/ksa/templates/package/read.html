@@ -1,7 +1,5 @@
 {% extends "package/read_base.html" %}
 
-{% set pkg = c.pkg_dict %}
-
 {% block primary_content_inner %}
   {{ super() }}
   {% block package_description %}
@@ -13,7 +11,7 @@
     {% endif %}
     <h1>
       {% block page_heading %}
-        {{ _(h.dataset_display_name(pkg)) }}
+        {{ title }}
         {% if pkg.state.startswith('draft') %}
           [{{ _('Draft') }}]
         {% endif %}
@@ -25,7 +23,7 @@
     {% block package_notes %}
       {% if pkg.notes %}
         <div class="notes embedded-content">
-          <i class="icon-info-sign"></i> {{ h.render_markdown(h.get_translated(pkg, 'notes')) }}
+          <i class="icon-info-sign"></i> {{ h.render_markdown(description) }}
         </div>
       {% endif %}
     {% endblock %}

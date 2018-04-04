@@ -1,10 +1,12 @@
 {% extends "page.html" %}
 
-{% block subtitle %}{{ c.group_dict.display_name }} - {{ _('Organizations') }}{% endblock %}
+{%- set title = c.group_dict.title[lang] | default(c.group_dict.title) -%}
+
+{% block subtitle %}{{ title }} - {{ _('Organizations') }}{% endblock %}
 
 {% block breadcrumb_content %}
   <li>{% link_for _('Organizations'), controller='organization', action='index' %}</li>
-  <li class="active">{% link_for c.group_dict.display_name|truncate(35), controller='organization', action='read', id=c.group_dict.name %}</li>
+  <li class="active">{% link_for title|truncate(35), controller='organization', action='read', id=c.group_dict.name %}</li>
 {% endblock %}
 
 {% block primary %}
