@@ -1,15 +1,13 @@
 {% extends "package/base.html" %}
 
 {%- set pkg = c.pkg_dict -%}
-{%- set lang = h.lang() -%}
-{%- set title = h.dataset_display_name(pkg)[lang] | default(h.dataset_display_name(pkg)) -%}
-{%- set description = pkg.notes[lang] | default(pkg.notes) -%}
+{%- set description = h.get_translated(pkg, 'notes') -%}
 
 {% block subtitle %}{{ h.dataset_display_name(pkg)[h.lang()] }} - {{ super() }}{% endblock %}
 
 {% block head_extras -%}
   {{ super() }}
-  <meta property="og:title" content="{{ h.dataset_display_name(pkg)[h.lang()] }} - {{ g.site_title }}">
+  <meta property="og:title" content="{{ h.get_translated(pkg, 'title') }} - {{ g.site_title }}">
   <meta property="og:description" content="{{ description|forceescape|trim }}">
 {% endblock -%}
 

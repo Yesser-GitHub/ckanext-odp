@@ -25,10 +25,4 @@ class KsaPlugin(plugins.SingletonPlugin):
         """
         controller = 'ckanext.ksa.controller:KsaController'
 
-        routeMap.connect(
-            "translations",
-            '/translations',
-            controller=controller,
-            action='translations')
-
         return routeMap

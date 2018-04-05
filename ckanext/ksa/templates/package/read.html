@@ -11,7 +11,7 @@
     {% endif %}
     <h1>
       {% block page_heading %}
-        {{ title }}
+        {{ h.get_translated(pkg, 'title') }}
         {% if pkg.state.startswith('draft') %}
           [{{ _('Draft') }}]
         {% endif %}
@@ -23,7 +23,7 @@
     {% block package_notes %}
       {% if pkg.notes %}
         <div class="notes embedded-content">
-          <i class="icon-info-sign"></i> {{ h.render_markdown(description) }}
+          <i class="icon-info-sign"></i> {{ h.render_markdown(h.get_translated(package, 'notes')) }}
         </div>
       {% endif %}
     {% endblock %}
@@ -34,7 +34,7 @@
     {% if pkg.organization %}
       <div class="d_publisher">
         <p>{{_('Publisher')}}: </p> 
-        <p>{{ h.link_to(h.truncate(_(pkg.organization.title)), h.url_for(controller='organization', action='read', id=pkg.organization.name)) }}</p>
+        <p>{{ h.link_to(h.get_translated(pkg.organization, 'title'), h.url_for(controller='organization', action='read', id=pkg.organization.name)) }}</p>
       </div>
     {% endif %}
   {% endblock %}

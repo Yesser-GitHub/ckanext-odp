@@ -1,7 +1,7 @@
 {% set truncate = truncate or 180 %}
 {% set truncate_title = truncate_title or 80 %}
-{% set title = package.title or package.name %}
-{% set notes = h.markdown_extract(package.notes[h.lang()], extract_length=truncate) %}
+{% set title = h.get_translated(package, 'title') %}
+{% set notes = h.get_translated(package, 'notes') %}
 
 {% block package_item %}
   <li class="{{ item_class or "dataset-item" }}">
@@ -32,7 +32,7 @@
         {% endblock %}
         {% block notes %}
           {% if notes %}
-            <div class="d_desc">{{ notes|urlize }}</div>
+            <div class="d_desc">{{ notes }}</div>
           {% endif %}
           {% if package.groups %}
             {% for group in package.groups %}

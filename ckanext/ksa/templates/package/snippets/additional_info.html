@@ -23,12 +23,12 @@
         {% if pkg_dict.author_email %}
           <tr>
             <th scope="row" class="dataset-label">{{ _("Author") }}</th>
-            <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=pkg_dict.author) }}</td>
+            <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=h.get_translated(pkg_dict, 'author')) }}</td>
           </tr>
         {% elif pkg_dict.author %}
           <tr>
             <th scope="row" class="dataset-label">{{ _("Author") }}</th>
-            <td class="dataset-details" property="dc:creator">{{ pkg_dict.author }}</td>
+            <td class="dataset-details" property="dc:creator">{{ h.get_translated(pkg_dict, 'author') }}</td>
           </tr>
         {% endif %}
 

@@ -6,7 +6,7 @@
   "form_languages": ["en", "ar"],
   "dataset_fields": [
     {
-      "field_name": "title",
+      "field_name": "title_translated",
       "preset": "fluent_text",
       "label": {
         "en": "Title",
@@ -20,7 +20,7 @@
       "form_placeholder": "eg. my-dataset"
     },
     {
-      "field_name": "notes",
+      "field_name": "notes_translated",
       "preset": "fluent_markdown",
       "label": {
         "en": "Description",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "field_name": "keywords",
+      "field_name": "keywords_translated",
       "preset": "fluent_tags",
       "label": {
         "en": "Tags",
@@ -50,7 +50,7 @@
       "preset": "dataset_organization"
     },
     {
-      "field_name": "url",
+      "field_name": "url_translated",
       "label": {
         "en": "Source",
         "ar": "مصدر"
@@ -63,10 +63,11 @@
         "en": "Version",
         "ar": "الإصدار"
       },
-      "preset": "fluent_text"
+      "validators": "ignore_missing unicode package_version_validator",
+      "form_placeholder": "1.0"
     },
     {
-      "field_name": "author",
+      "field_name": "author_translated",
       "label": {
         "en": "Author",
         "ar": "مؤلف"

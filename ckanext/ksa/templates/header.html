@@ -13,11 +13,6 @@
               {% block header_account_logged %}
               {% if c.userobj.sysadmin %}
                 <li>
-                  <a href="{{ h.url_for(controller='ckanext.ksa.controller:KsaController', action='translations') }}" title="{{ _('Translations') }}">
-                    <span>{{ _('Translations') }}</span>
-                  </a>
-                </li>
-                <li>
                   <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
                     <i class="icon-legal" aria-hidden="true"></i>
                     <span class="text">{{ _('Admin') }}</span>

@@ -1,6 +1,6 @@
 {% extends "page.html" %}
 
-{%- set title = c.group_dict.title[lang] | default(c.group_dict.title) -%}
+{%- set title = h.get_translated(c.group_dict, 'title') -%}
 
 {% block subtitle %}{{ title }} - {{ _('Organizations') }}{% endblock %}
 
