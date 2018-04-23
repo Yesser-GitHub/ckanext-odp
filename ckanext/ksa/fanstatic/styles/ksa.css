@@ -1,17 +1,17 @@
 @font-face {
   font-family: 'Midan';
-  src: url('/fonts/Midan.ttf');
+  src: url('../fonts/Midan.ttf');
 }
 @font-face {
   font-family: 'MidanBlack';
-  src: url('/fonts/Midan-Black.ttf');
+  src: url('../fonts/Midan-Black.ttf');
 }
 body {
   font-family: 'Midan';
   font-size: 20px;
   line-height: 1.35em;
   color: #3B3B3B;
-  background: url('/images/bg_body_top.png') top no-repeat, url('/images/bg_body_bottom.png') bottom no-repeat;
+  background: url('../images/bg_body_top.png') top no-repeat, url('../images/bg_body_bottom.png') bottom no-repeat;
   background-size: 100% auto;
   padding: 0;
 }
@@ -184,7 +184,7 @@ header.navbar .logo {
 }
 header.navbar .social-links .social_icons .soc-icon {
   display: inline-block;
-  background: url(/images/social_icons.png) 0 0 no-repeat;
+  background: url(../images/social_icons.png) 0 0 no-repeat;
   width: 36px;
   height: 36px;
   margin-right: 8px;
@@ -291,7 +291,7 @@ header.navbar .header-navbar .btn-navbar .icon-bar {
   color: #555;
 }
 .homepage .panel-top {
-  background: linear-gradient(rgba(11, 135, 67, 0.45), rgba(11, 135, 67, 0.45)), url('/images/heading-bg.jpg') 50% 50% no-repeat;
+  background: linear-gradient(rgba(11, 135, 67, 0.45), rgba(11, 135, 67, 0.45)), url('../images/heading-bg.jpg') 50% 50% no-repeat;
   background-size: cover;
   padding: 30px 0;
 }
