@@ -79,7 +79,7 @@
   <hgroup class="{{ g.header_class }}">
     <div class="container">
       {% block header_logo %}
-        <a class="logo pull-left" href="{{ h.url_for('home') }}"><img src="/images/logo.png" alt="{{ g.site_title }}" title="{{ g.site_title }}" /></a>
+        <a class="logo pull-left" href="{{ h.url_for('home') }}"><img src="{{ h.url_for_static('/images/logo.png') }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" /></a>
       {% endblock %}
       <div class="pull-right row">
         {% snippet "snippets/language_selector.html" %}
