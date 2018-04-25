@@ -32,7 +32,8 @@
         {% endblock %}
         {% block notes %}
           {% if notes %}
-            <div class="d_desc">{{ notes }}</div>
+            <div class="d_desc">{{ h.render_markdown(
+              h.scheming_language_text(package['notes'])) }}</div>
           {% endif %}
           {% if package.groups %}
             {% for group in package.groups %}
