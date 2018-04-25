@@ -191,7 +191,7 @@ class KSACommand(CkanCommand):
         url = config.get('ckan.site_url', '')
         for package in query:
             dataset = requests.get(
-            url + '/api/3/action/package_show?id=' + package.id,
+            url + '/data/api/3/action/package_show?id=' + package.id,
             headers={
                 'Authorization': self.options.key,
                 'Content-type': 'application/json'
@@ -201,7 +201,7 @@ class KSACommand(CkanCommand):
                 notes = ''
                 if dataset['result']['notes']:
                     notes = dataset['result']['notes']
-                r = requests.post(url + '/api/3/action/package_patch',
+                r = requests.post(url + '/data/api/3/action/package_patch',
                                     verify=False,
                                     data=json.dumps({
                                         'id':  dataset['result']['id'],
@@ -217,9 +217,8 @@ class KSACommand(CkanCommand):
                                     headers={
                                         'Authorization': self.options.key,
                                         'Content-type': 'application/json'
-                                    }).json()
-                print dataset['result']['id'], r['success'] if \
-                    r['success'] else r['error']
+                                    })
+                print dataset['result']['id'], r
 
 def request_pack_of_datasets(get, url, limit):
     params = dict(limit=limit, offset=0)
