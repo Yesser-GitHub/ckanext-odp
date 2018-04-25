@@ -12,6 +12,7 @@ import paste.script
 from ckan.lib.cli import CkanCommand
 import ckan.logic as logic
 import ckan.model as model
+from ckan.common import config
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +49,10 @@ class KSACommand(CkanCommand):
         '-d', '--dir-with-data', help='Dir where is stored pulled data'
     )
     parser.add_option('-s', '--socks', default='localhost:2001')
+
+    parser.add_option(
+        '-k', '--key', help='Api Key'
+    )
 
     def command(self):
         self._load_config()
@@ -181,6 +186,40 @@ class KSACommand(CkanCommand):
         )
         return tmp_dir
 
+    def update_datasets_with_translations(self):
+        query = model.Session.query(model.Package.id)
+        url = config.get('ckan.site_url', '')
+        for package in query:
+            dataset = requests.get(
+            url + '/api/3/action/package_show?id=' + package.id,
+            headers={
+                'Authorization': self.options.key,
+                'Content-type': 'application/json'
+            }).json()
+
+            if 'title_translated' not in dataset['result']:
+                notes = ''
+                if dataset['result']['notes']:
+                    notes = dataset['result']['notes']
+                r = requests.post(url + '/api/3/action/package_patch',
+                                    verify=False,
+                                    data=json.dumps({
+                                        'id':  dataset['result']['id'],
+                                        'title_translated': {
+                                            'en': dataset['result']['title'], 
+                                            'ar': dataset['result']['title']
+                                            },
+                                        'notes_translated': {
+                                            'en': notes, 
+                                            'ar': notes
+                                            }
+                                    }),
+                                    headers={
+                                        'Authorization': self.options.key,
+                                        'Content-type': 'application/json'
+                                    }).json()
+                print dataset['result']['id'], r['success'] if \
+                    r['success'] else r['error']
 
 def request_pack_of_datasets(get, url, limit):
     params = dict(limit=limit, offset=0)
