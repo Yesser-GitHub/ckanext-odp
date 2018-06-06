@@ -12,7 +12,7 @@
             {% block heading_private %}
               {% if package.private %}
                 <span class="dataset-private label label-inverse">
-                  <i class="icon-lock"></i>
+                  <i class="fa fa-lock"></i>
                   {{ _('Private') }}
                 </span>
               {% endif %}
@@ -32,7 +32,8 @@
         {% endblock %}
         {% block notes %}
           {% if notes %}
-            <div class="d_desc">{{ notes }}</div>
+            <div class="d_desc">{{ h.render_markdown(
+              h.scheming_language_text(package['notes'])) }}</div>
           {% endif %}
           {% if package.groups %}
             {% for group in package.groups %}
